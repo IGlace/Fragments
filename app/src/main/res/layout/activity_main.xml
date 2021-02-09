@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bluedark"
+    tools:context=".MainActivity">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="1">
+
+        <Button
+            android:id="@+id/firstFrag"
+            android:layout_gravity="fill"
+            android:layout_margin="5dp"
+            android:layout_columnWeight="1"
+            android:background="@color/indigo"
+            android:textSize="15sp"
+            android:text="@string/fragment_1" />
+
+        <Button
+            android:id="@+id/secondFrag"
+            android:layout_gravity="fill"
+            android:layout_margin="5dp"
+            android:layout_columnWeight="1"
+            android:background="@color/indigo"
+            android:textSize="15sp"
+            android:text="@string/fragment_2" />
+
+    </GridLayout>
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:background="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
