@@ -7,6 +7,18 @@
     android:background="@color/bluedark"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@color/white_low"
+        android:autofillHints="Text Field"
+        android:inputType="text"
+        android:layout_margin="10dp"
+        tools:ignore="LabelFor" />
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentCommunication {
 
     private Button firstFragment, secondeFragment;
+    private EditText text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,16 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
         firstFragment = findViewById(R.id.firstFrag);
         secondeFragment = findViewById(R.id.secondFrag);
+        text = findViewById(R.id.text);
 
-        firstFragment.setOnClickListener(v -> {
-            First first = new First();
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame, first).commit();
-        });
+        Seconde seconde = new Seconde();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, seconde).commit();
+    }
 
-        secondeFragment.setOnClickListener(v -> {
-            Seconde seconde = new Seconde();
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame, seconde).addToBackStack(null).commit();
-        });
-
+    @Override
+    public void sendData(String message) {
+        First first = new First();
+        Bundle args = new Bundle();
+        args.putString("msg", message);
+        first.setArguments(args);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, first).addToBackStack(null).commit();
     }
 }
